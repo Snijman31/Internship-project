@@ -8,16 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
-def browser_init(context):
-    """
-    :param context: Behave context
-    """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(5)
 
 
 @given('Open main page https://soft.reelly.io/sign-in')
@@ -42,9 +32,8 @@ def verify_right_page(context):
     sleep(2)
 
 @then('Verify there are 13 options for the settings')
-def verify_settings_options(context):
-    context.app.SettingsPage.verify_options_settings_pge()
-    sleep(2)
+def verify_options_settings_pge(context):
+    context.app.SettingsPage.verify_settings_page()
 
 @then('Verify “connect the company” button is available')
 def verify_connect_the_company_button(context):

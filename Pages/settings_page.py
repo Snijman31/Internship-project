@@ -9,7 +9,8 @@ class SettingsPage(BasePage):
 
     SETTING_PGE = (By.XPATH, "//a[@href='/settings']")
     SETTING_PGE_OPEN = (By.CSS_SELECTOR,'.image-profile-settings')
-    SETTING_OPT = (By.CSS_SELECTOR,'.settings-block-menu')
+    SETTING_OPT = (By.CSS_SELECTOR,'.settings-block-menu'"Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6", "Option 7", "Option 8",
+                       "Option 9", "Option 10", "Option 11", "Option 12", "Option 13")
     CONNECT_TO_COMPANY =(By.XPATH,'//a[@href="/payment/personal"]')
 
     def verify_settings_page(self,*locator):
