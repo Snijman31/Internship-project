@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.options import Options
+
 
 from app.application import Application
 
@@ -14,6 +14,15 @@ def browser_init(context, scenario_name):
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
+
+    mobile_emulation = {"deviceName": "Nexus 5"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+    context.driver = webdriver.Chrome(
+        service=service,
+        options=chrome_options
+    )
 
     #driver_path = GeckoDriverManager().install()
     #service = Service(driver_path)

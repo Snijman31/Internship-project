@@ -13,17 +13,23 @@ from time import sleep
 @given('Open main page https://soft.reelly.io/sign-in')
 def open_main_page(context):
     context.app.MainPage.open_main_page()
-    sleep(2)
+    sleep(5)
 
 @when('Log in to the page')
 def log_in_to_the_page(context):
          context.app.LoginPage.log_in()
-         sleep(2)
+         sleep(5)
+
+@when ('Click on main menu')
+def click_on_main_menu(context):
+    context.app.MainMenuPage.click_on_main_menu()
+    sleep(5)
+
 
 @when('Click on settings option')
 def click_on_settings(context):
     context.app.SettingsPage.verify_settings_page()
-    sleep(2)
+    sleep(5)
 
 
 @when('Verify the right page opens')
@@ -33,7 +39,9 @@ def verify_right_page(context):
 
 @then('Verify there are 13 options for the settings')
 def verify_options_settings_pge(context):
-    context.app.SettingsPage.verify_settings_page()
+    context.app.SettingsPage.verify_options_settings_pge()
+    sleep(5)
+
 
 @then('Verify “connect the company” button is available')
 def verify_connect_the_company_button(context):

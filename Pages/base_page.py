@@ -1,3 +1,6 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage:
@@ -14,7 +17,7 @@ class BasePage:
     def enter_password(self, password):
         self.driver.find_element('password').send_keys(password)
 
-    def click_login_button(self):
+    def click_login_button(self, login):
         self.driver.find_element('login').click()
 
     def find_element(self, locator):
@@ -25,3 +28,4 @@ class BasePage:
 
     def click(self, locator):
         self.driver.find_element(*locator).click()
+
