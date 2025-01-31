@@ -9,7 +9,7 @@ class SettingsPage(BasePage):
 
     SETTING_PGE = (By.XPATH,"//div[@class='settings-code w-embed']")
     SETTING_PGE_OPEN = (By.CSS_SELECTOR,'.image-profile-settings')
-    SETTING_OPT = (By.XPATH, "//div[@class='settings-block-menu']")
+    SETTING_OPT = (By.CSS_SELECTOR, '[class="settings-block-menu"] [class*="page-setting-block"]')
     CONNECT_TO_COMPANY =(By.XPATH,'//a[@href="/payment/personal"]')
 
     def verify_settings_page(self,*locator):
@@ -21,7 +21,7 @@ class SettingsPage(BasePage):
 
     def verify_options_settings_pge(self,*locator):
        elements = self.driver.find_elements(*self.SETTING_OPT)
-       assert len(elements) == 1, f"Expected 1 elements, but found {len(elements)}"
+       assert len(elements) == 13, f"Expected 13 elements, but found {len(elements)}"
        print(f"Verified: {len(elements)} options are available in the settings.")
 
     def verify_connect_to_company_btn(self,*locator):
